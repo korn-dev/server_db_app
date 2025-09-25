@@ -1,21 +1,20 @@
 plugins {
-    kotlin("jvm") version "2.2.0"
+    kotlin("jvm") version "1.9.0"
+    application
 }
-
-group = "ru.korndev"
-version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation(kotlin("test"))
+    implementation("io.javalin:javalin:6.7.0")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.15.2")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.15.2")
+    implementation("org.xerial:sqlite-jdbc:3.42.0.0")
+    implementation("org.slf4j:slf4j-simple:2.0.7")
 }
 
-tasks.test {
-    useJUnitPlatform()
-}
-kotlin {
-    jvmToolchain(17)
+application {
+    mainClass.set("MainKt")
 }
